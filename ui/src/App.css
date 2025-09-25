@@ -1,0 +1,88 @@
+
+/* This ensures our full-screen component isn't affected by default browser margins */
+body {
+  margin: 0;
+  overflow: hidden; /* Prevents scrolling on the body itself */
+}
+
+#root {
+  margin: 0;
+  overflow: hidden;
+}
+
+.reel-container {
+  height: 100vh; /* Full viewport height */
+  width: 100vw;   /* Full viewport width */
+  overflow-y: scroll;
+  /* This is the magic! It enables vertical (y) scroll snapping and forces it. */
+  scroll-snap-type: y mandatory;
+
+  /* Hides the scrollbar for a cleaner, app-like look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.reel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.reel-slide {
+  height: 100vh;
+  width: 100vw;
+  /* This tells the browser where this element should snap to within the container. */
+  scroll-snap-align: start;
+
+  /* Styling for the background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Optional: for centering content placed inside the slide */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-sizing: border-box;
+
+  position: relative;
+}
+
+.reel-details-container {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0,0,0,0.6);
+}
+
+.reel-details {
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+}
+
+.reel-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.reel-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.reel-description-landscape {
+  display: block;
+}
+
+.reel-description-portrait {
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+  .reel-description-landscape {
+    display: none;
+  }
+
+  .reel-description-portrait {
+    display: block;
+  }
+}
