@@ -27,7 +27,7 @@ body {
 }
 
 .reel-slide {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   /* This tells the browser where this element should snap to within the container. */
   scroll-snap-align: start;
