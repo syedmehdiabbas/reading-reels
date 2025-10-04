@@ -1,21 +1,16 @@
 import "./App.css";
 
 type ReelProps = {
-  title: string;
-  image: string;
-  text: string;
   url: string;
+  image: string;
+  title: string;
+  text: string;
+  shortenedText: string;
 };
 
-const Reel = ({ title, image, text, url }: ReelProps) => {
-  const shortenedText = text.split(".")[0];
-
+const Reel = ({ title, image, text, url, shortenedText }: ReelProps) => {
   return (
-    <div
-      key={url}
-      className="reel-slide"
-      style={{ backgroundImage: `url(${image})` }}
-    >
+    <div className="reel-slide" style={{ backgroundImage: `url(${image})` }}>
       <div className="reel-details-container">
         <div className="reel-details">
           <p className="reel-title">{title}</p>
